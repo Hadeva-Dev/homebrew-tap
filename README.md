@@ -11,8 +11,12 @@ Needs a Mac with Apple silicon and macOS 14 or later. Homebrew installs Node and
 The formula installs the same two wheels as each [release](https://github.com/Hadeva-Dev/dawnmere/releases), checked
 by sha256, with every Python dependency pinned to a wheel and its hash. It does not run `dawnmere setup` for you.
 
-Update with `brew upgrade dawnmere`. To remove it, run `dawnmere uninstall` first (it takes out the app connections
-and the background service), then `brew uninstall dawnmere`.
+Homebrew (7.0 and later) loads a third-party tap's formulae only when they are named in full in `install`, `reinstall`
+or `upgrade`, until you trust the tap. So update with `brew upgrade hadeva-dev/tap/dawnmere`, or run
+`brew trust hadeva-dev/tap` once to let a plain `brew upgrade` and `brew info dawnmere` see it.
+
+To remove it, run `dawnmere uninstall` first (it takes out the app connections and the background service), then
+`brew uninstall dawnmere`.
 
 The curl install line on [dawnmere.app](https://dawnmere.app) remains the main way to install; this tap is the
 Homebrew route to the same release.

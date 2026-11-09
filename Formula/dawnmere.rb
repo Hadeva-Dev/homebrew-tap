@@ -279,8 +279,10 @@ class Dawnmere < Formula
       Connect your AI apps to one memory:
         dawnmere setup
 
-      Update with `brew upgrade dawnmere`. To remove it, run `dawnmere uninstall` first
-      (it takes out the app connections and the background service), then `brew uninstall dawnmere`.
+      Update with `brew upgrade hadeva-dev/tap/dawnmere` (or `brew trust hadeva-dev/tap` once,
+      then a plain `brew upgrade`). Not `dawnmere update`: that is for the curl install.
+      To remove it, run `dawnmere uninstall` first (it takes out the app connections and the
+      background service), then `brew uninstall dawnmere`.
     EOS
   end
 
