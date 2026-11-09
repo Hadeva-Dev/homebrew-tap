@@ -24,9 +24,10 @@ jobs:
         # audit and test are developer commands: Homebrew loads a third-party tap for them only once it is trusted
         run: brew tap hadeva-dev/tap "$GITHUB_WORKSPACE" && brew trust hadeva-dev/tap
       - name: Audit
-        run: brew audit --strict --new --online hadeva-dev/tap/dawnmere
+        # GitHub's release downloads answer 504 now and then (Nov 2026): three tries before a failure counts
+        run: for i in 1 2 3; do brew audit --strict --new --online hadeva-dev/tap/dawnmere && exit 0; sleep 30; done; exit 1
       - name: Install from source
-        run: brew install --build-from-source --verbose hadeva-dev/tap/dawnmere
+        run: for i in 1 2 3; do brew install --build-from-source --verbose hadeva-dev/tap/dawnmere && exit 0; sleep 30; done; exit 1
       - name: Test
         run: brew test --verbose hadeva-dev/tap/dawnmere
       - name: Commands on PATH

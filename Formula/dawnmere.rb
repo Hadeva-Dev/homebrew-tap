@@ -8,8 +8,8 @@ class Dawnmere < Formula
   license "MIT"
 
   depends_on arch: :arm64
-  depends_on macos: :sonoma
   depends_on "libyaml" # pyyaml (the wheel bundles its own; the audit asks for it)
+  depends_on macos: :sonoma
   depends_on "node"
   depends_on "python@3.12"
 
