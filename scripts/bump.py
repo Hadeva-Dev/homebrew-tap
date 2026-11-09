@@ -38,10 +38,10 @@ TAGS = list(cpython_tags(PY, platforms=PLATFORMS)) + list(compatible_tags(PY, pl
 RANK = {t: i for i, t in enumerate(TAGS)}
 
 
-def get(url, tries=6):
+def get(url, tries=6, headers=None):
     for i in range(tries):
         try:
-            with urllib.request.urlopen(url, timeout=60) as r:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=headers or {}), timeout=60) as r:
                 return r.read()
         except (urllib.error.URLError, TimeoutError) as e:
             if i == tries - 1 or getattr(e, "code", 500) < 500:
@@ -88,8 +88,21 @@ def main():
         sys.exit(__doc__)
     version = sys.argv[1].lstrip("v")
     base = f"https://github.com/{REPO}/releases/download/v{version}"
+    # Assets are read through the API: github.com/.../releases/download/ answered 504 for minutes at a time (Nov 2026)
+    api = {"Accept": "application/octet-stream"}
+    if os.environ.get("GITHUB_TOKEN"):
+        api["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
+    release = json.loads(get(f"https://api.github.com/repos/{REPO}/releases/tags/v{version}",
+                             headers={k: v for k, v in api.items() if k != "Accept"}))
+    assets = {a["name"]: a["url"] for a in release["assets"]}
+
+    def asset(name):
+        if name not in assets:
+            sys.exit(f"v{version} has no asset {name}")
+        return get(assets[name], headers=api)
+
     sums = {}
-    for line in get(f"{base}/SHA256SUMS").decode().splitlines():
+    for line in asset("SHA256SUMS").decode().splitlines():
         digest, name = line.split()
         sums[name.lstrip("*")] = digest
 
@@ -105,12 +118,12 @@ def main():
 
     with tempfile.TemporaryDirectory() as d:
         for name in (cli, engine):
-            data = get(f"{base}/{name}")
+            data = asset(name)
             if sha256(data) != sums[name]:
                 sys.exit(f"{name} does not match SHA256SUMS")
             (Path(d) / name).write_bytes(data)
         if "constraints.txt" in sums:
-            data = get(f"{base}/constraints.txt")
+            data = asset("constraints.txt")
             if sha256(data) != sums["constraints.txt"]:
                 sys.exit("constraints.txt does not match SHA256SUMS")
             pins_text, source = data.decode(), "the release's constraints.txt"
