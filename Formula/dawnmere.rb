@@ -3,8 +3,8 @@ class Dawnmere < Formula
 
   desc "Local memory shared by Claude Code, Codex and Cursor"
   homepage "https://dawnmere.app"
-  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.7/lflabs_memory_cli-0.1.7-py3-none-any.whl", using: :nounzip
-  sha256 "20e838d4d4245619bb3e4e14822b8107be606c6dcf41d23cef000cd23aebde00"
+  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.8/lflabs_memory_cli-0.1.8-py3-none-any.whl", using: :nounzip
+  sha256 "b44986f541c2e75e2d5da358af94ff17081bf0c6d2c4984f8b9a1a07f9e0d43b"
   license "MIT"
 
   depends_on arch: :arm64
@@ -14,8 +14,8 @@ class Dawnmere < Formula
   depends_on "python@3.12"
 
   resource "lflabs-memory-engine" do
-    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.7/lflabs_memory_engine-0.1.5-py3-none-any.whl", using: :nounzip
-    sha256 "cf5c3e1d4acb7756d877719ef83d2fb6c0f13491eb7418b4f6da180cd511d686"
+    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.8/lflabs_memory_engine-0.1.6-py3-none-any.whl", using: :nounzip
+    sha256 "3fa5e43d5b13de6c8d08e82592d161465e3ec805effb3858f3678a0827577c5d"
   end
 
   resource "annotated-doc" do
@@ -287,7 +287,7 @@ class Dawnmere < Formula
   end
 
   test do
-    assert_match "one memory for every AI app", shell_output("#{bin}/dawnmere --help")
+    assert_match "one memory for Claude Code, Codex and Cursor", shell_output("#{bin}/dawnmere --help")
     assert_path_exists bin/"lflabs-memory"
     system libexec/"bin/python", "-c", <<~PYTHON
       import sqlite3, sqlite_vec, onnxruntime, tokenizers
