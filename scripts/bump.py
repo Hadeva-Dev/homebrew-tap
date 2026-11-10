@@ -28,7 +28,7 @@ from pathlib import Path
 from packaging.tags import compatible_tags, cpython_tags, mac_platforms
 from packaging.utils import canonicalize_name, parse_wheel_filename
 
-REPO = "Hadeva-Dev/dawnmere"
+REPO = "LF-Labs-Inc/dawnmere"
 PY = (3, 12)          # the Python the release targets (install.sh: --python 3.12); keep in step with the formula
 MACOS = (14, 0)
 FORMULA = Path(__file__).resolve().parent.parent / "Formula" / "dawnmere.rb"

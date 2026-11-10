@@ -1,19 +1,19 @@
-# Hadeva-Dev Homebrew tap
+# LF Labs Homebrew tap
 
 Formulae for [Dawnmere](https://dawnmere.app): one local memory shared by Claude Code, Codex and Cursor on a Mac.
 
 ```sh
-brew install hadeva-dev/tap/dawnmere
+brew install lf-labs-inc/tap/dawnmere
 dawnmere setup
 ```
 
 Needs a Mac with Apple silicon and macOS 14 or later. Homebrew installs Node and Python 3.12 alongside it.
-The formula installs the same two wheels as each [release](https://github.com/Hadeva-Dev/dawnmere/releases), checked
+The formula installs the same two wheels as each [release](https://github.com/LF-Labs-Inc/dawnmere/releases), checked
 by sha256, with every Python dependency pinned to a wheel and its hash. It does not run `dawnmere setup` for you.
 
 Homebrew (7.0 and later) loads a third-party tap's formulae only when they are named in full in `install`, `reinstall`
-or `upgrade`, until you trust the tap. So update with `brew upgrade hadeva-dev/tap/dawnmere`, or run
-`brew trust hadeva-dev/tap` once to let a plain `brew upgrade` and `brew info dawnmere` see it.
+or `upgrade`, until you trust the tap. So update with `brew upgrade lf-labs-inc/tap/dawnmere`, or run
+`brew trust lf-labs-inc/tap` once to let a plain `brew upgrade` and `brew info dawnmere` see it.
 
 To remove it, run `dawnmere uninstall` first (it takes out the app connections and the background service), then
 `brew uninstall dawnmere`.

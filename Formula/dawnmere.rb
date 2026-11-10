@@ -3,7 +3,7 @@ class Dawnmere < Formula
 
   desc "Local memory shared by Claude Code, Codex and Cursor"
   homepage "https://dawnmere.app"
-  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.9/lflabs_memory_cli-0.1.9-py3-none-any.whl", using: :nounzip
+  url "https://github.com/LF-Labs-Inc/dawnmere/releases/download/v0.1.9/lflabs_memory_cli-0.1.9-py3-none-any.whl", using: :nounzip
   sha256 "3c0128f3e155fc38764e2f59e8bbec2cd4ea10a10fa7253a96cd5887ed7758df"
   license "MIT"
 
@@ -14,7 +14,7 @@ class Dawnmere < Formula
   depends_on "python@3.12"
 
   resource "lflabs-memory-engine" do
-    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.9/lflabs_memory_engine-0.1.7-py3-none-any.whl", using: :nounzip
+    url "https://github.com/LF-Labs-Inc/dawnmere/releases/download/v0.1.9/lflabs_memory_engine-0.1.7-py3-none-any.whl", using: :nounzip
     sha256 "86aafd7c3d983063e2a3725a6502aeb2b61ef06bd43ab3454f3df496271b258c"
   end
 
@@ -279,7 +279,7 @@ class Dawnmere < Formula
       Connect your AI apps to one memory:
         dawnmere setup
 
-      Update with `brew upgrade hadeva-dev/tap/dawnmere` (or `brew trust hadeva-dev/tap` once,
+      Update with `brew upgrade lf-labs-inc/tap/dawnmere` (or `brew trust lf-labs-inc/tap` once,
       then a plain `brew upgrade`). Not `dawnmere update`: that is for the curl install.
       To remove it, run `dawnmere uninstall` first (it takes out the app connections and the
       background service), then `brew uninstall dawnmere`.
