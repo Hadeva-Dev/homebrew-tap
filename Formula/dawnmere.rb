@@ -3,8 +3,8 @@ class Dawnmere < Formula
 
   desc "Local memory shared by Claude Code, Codex and Cursor"
   homepage "https://dawnmere.app"
-  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.5/lflabs_memory_cli-0.1.5-py3-none-any.whl", using: :nounzip
-  sha256 "712265edbceea275785de1113476a6eb6109513510c426f3b9232414b3632c64"
+  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.6/lflabs_memory_cli-0.1.6-py3-none-any.whl", using: :nounzip
+  sha256 "794c10553226d7c1305f6ef557f5e6e6fd833e4bc3e511842e5fe536c75f4f0f"
   license "MIT"
 
   depends_on arch: :arm64
@@ -14,8 +14,8 @@ class Dawnmere < Formula
   depends_on "python@3.12"
 
   resource "lflabs-memory-engine" do
-    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.5/lflabs_memory_engine-0.1.3-py3-none-any.whl", using: :nounzip
-    sha256 "634caf4caef7ad3ed0cc1369414d089f91af0be0c7513814435afdf90807be32"
+    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.6/lflabs_memory_engine-0.1.4-py3-none-any.whl", using: :nounzip
+    sha256 "e2691a2d9e6b59458684ddd50e83bf091fcabafd5fe7f65e42252b95d682bc9f"
   end
 
   resource "annotated-doc" do
@@ -54,8 +54,8 @@ class Dawnmere < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/00/05/76184fe08339723d643ab47887a8e4de8f2921ca4e008617ab7490af7857/filelock-4.2.9-py3-none-any.whl", using: :nounzip
-    sha256 "a379c50a729e5b68c8519a4d26489f755d9769960a236ecd838190e2a78db2e9"
+    url "https://files.pythonhosted.org/packages/ef/90/5d0096a325aa0f83ba7a3968bfb485b67e32c947bdf9cd0fcb4b485be718/filelock-4.2.10-py3-none-any.whl", using: :nounzip
+    sha256 "9479aaeb4db20b5a53e3da28493edd24720b66b8a0b84030aa56ccdf243d6857"
   end
 
   resource "flatbuffers" do
@@ -244,8 +244,8 @@ class Dawnmere < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/19/98/8ef60c7cd773dbab9d276a4c7bff505913a25b61acd8a9ef01ceeb70f554/typer-0.28.0-py3-none-any.whl", using: :nounzip
-    sha256 "afd18929180b706c5e9a239f53c3c8136903553c0c2d460598bbaa924191d4ab"
+    url "https://files.pythonhosted.org/packages/c1/3d/cc08d3cb257764101c71c47f18e2f547782d013928edc877f155cb99229d/typer-0.29.0-py3-none-any.whl", using: :nounzip
+    sha256 "b3c3de6e06a848274dc7bd56a433499e9cf25fa1d40aa3ba4eccfec4e1624c7b"
   end
 
   resource "typing-extensions" do
