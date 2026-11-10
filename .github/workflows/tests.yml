@@ -22,17 +22,17 @@ jobs:
           fetch-depth: 0
       - name: Tap this checkout
         # audit and test are developer commands: Homebrew loads a third-party tap for them only once it is trusted
-        run: brew tap hadeva-dev/tap "$GITHUB_WORKSPACE" && brew trust hadeva-dev/tap
+        run: brew tap lf-labs-inc/tap "$GITHUB_WORKSPACE" && brew trust lf-labs-inc/tap
       - name: Audit
         # GitHub's release downloads answer 504 now and then (Nov 2026): three tries before a failure counts
-        run: for i in 1 2 3; do brew audit --strict --new --online hadeva-dev/tap/dawnmere && exit 0; sleep 30; done; exit 1
+        run: for i in 1 2 3; do brew audit --strict --new --online lf-labs-inc/tap/dawnmere && exit 0; sleep 30; done; exit 1
       - name: Install from source
-        run: for i in 1 2 3; do brew install --build-from-source --verbose hadeva-dev/tap/dawnmere && exit 0; sleep 30; done; exit 1
+        run: for i in 1 2 3; do brew install --build-from-source --verbose lf-labs-inc/tap/dawnmere && exit 0; sleep 30; done; exit 1
       - name: Test
-        run: brew test --verbose hadeva-dev/tap/dawnmere
+        run: brew test --verbose lf-labs-inc/tap/dawnmere
       - name: Commands on PATH
         run: |
-          brew info hadeva-dev/tap/dawnmere
+          brew info lf-labs-inc/tap/dawnmere
           command -v dawnmere lflabs-memory
           dawnmere --help
 
@@ -46,7 +46,7 @@ jobs:
     steps:
       - name: Tap from GitHub, untrusted
         run: |
-          brew tap hadeva-dev/tap
+          brew tap lf-labs-inc/tap
           brew info dawnmere && echo "info works untrusted" || echo "info refused until the tap is trusted"
       - name: Trusted
-        run: brew trust hadeva-dev/tap && brew info dawnmere
+        run: brew trust lf-labs-inc/tap && brew info dawnmere
