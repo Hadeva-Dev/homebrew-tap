@@ -287,7 +287,7 @@ class Dawnmere < Formula
   end
 
   test do
-    assert_match "one memory for every AI app", shell_output("#{bin}/dawnmere --help")
+    assert_match "one memory for Claude Code, Codex and Cursor", shell_output("#{bin}/dawnmere --help")
     assert_path_exists bin/"lflabs-memory"
     system libexec/"bin/python", "-c", <<~PYTHON
       import sqlite3, sqlite_vec, onnxruntime, tokenizers
