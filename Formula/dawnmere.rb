@@ -3,8 +3,8 @@ class Dawnmere < Formula
 
   desc "Local memory shared by Claude Code, Codex and Cursor"
   homepage "https://dawnmere.app"
-  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.6/lflabs_memory_cli-0.1.6-py3-none-any.whl", using: :nounzip
-  sha256 "794c10553226d7c1305f6ef557f5e6e6fd833e4bc3e511842e5fe536c75f4f0f"
+  url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.7/lflabs_memory_cli-0.1.7-py3-none-any.whl", using: :nounzip
+  sha256 "20e838d4d4245619bb3e4e14822b8107be606c6dcf41d23cef000cd23aebde00"
   license "MIT"
 
   depends_on arch: :arm64
@@ -14,8 +14,8 @@ class Dawnmere < Formula
   depends_on "python@3.12"
 
   resource "lflabs-memory-engine" do
-    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.6/lflabs_memory_engine-0.1.4-py3-none-any.whl", using: :nounzip
-    sha256 "e2691a2d9e6b59458684ddd50e83bf091fcabafd5fe7f65e42252b95d682bc9f"
+    url "https://github.com/Hadeva-Dev/dawnmere/releases/download/v0.1.7/lflabs_memory_engine-0.1.5-py3-none-any.whl", using: :nounzip
+    sha256 "cf5c3e1d4acb7756d877719ef83d2fb6c0f13491eb7418b4f6da180cd511d686"
   end
 
   resource "annotated-doc" do
